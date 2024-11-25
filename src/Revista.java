@@ -50,6 +50,9 @@ public class Revista extends ItemBiblioteca implements Catalogable{
     public void calcularMultas(LocalDate fechaPrestamo) {
         Duration retraso = Duration.between(fechaPrestamo, LocalDate.now());
         int diasRetraso = (int)Math.ceil(retraso.getSeconds()/(3600*24));
+
+        int multa = 200*diasRetraso;
+        System.out.printf("Nos debes COP$ %d por tus %d días de retraso en la devolución de la revista %s", multa, diasRetraso, this.nombreRevista);
     }
 
     @Override
